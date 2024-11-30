@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Mon Amour ❤️</title>
+    <style>
+        /* CSS intégré */
+        body {
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 60vh; /* Augmente la hauteur pour que le contenu prenne plus d'espace */
+        }
+
+        .verification, .container {
+            display: none;
+        }
+
+        .verification {
+            background-color: black;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; /* Ajout d'un peu d'espace autour du formulaire */
+        }
+
+        .container {
+            background-color: #ffe6e6;
+            color: #b30000;
+            margin-top: 0%;
+            min-height: 100vh;
+            padding: 20px; /* Ajout d'un peu d'espace autour de la section principale */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px; /* Espace sous le titre */
+            
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        button, input {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 15px 0; /* Espacement entre les boutons et les autres éléments */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        button:hover, input:hover {
+            transform: scale(1.1);
+        }
+
+        button {
+            background-color: #ff6666;
+            color: white;
+        }
+
+        input {
+            background-color: white;
+            border: 1px solid #ff6666;
+        }
+
+        #message, #souvenirs, #textSpecial {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #cc0000;
+           
+            display: none;
+        }
+
+        .souvenirs-images img {
+            width: 150px;
+            margin: 15px; /* Espacement entre les images des souvenirs */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .souvenirs-images img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="verification">
+        <h2>Quel est le nom de ton amour ?</h2>
+        <input type="text" id="nameInput" placeholder="Écris son nom ici">
+        <h3>Quelle est ton année de naissance ?</h3>
+        <input type="number" id="birthYearInput" placeholder="Écris ton année de naissance">
+        <button id="verifyButton">Vérifier</button>
+        <p id="error" style="color: red; display: none;">Nom ou année de naissance incorrect ! Essaie encore.</p>
+    </div>
+
+    <div class="container">
+        <h1>Pour Toi, Mon Amour TALAYLAT INOOOOOOOO ❤️</h1>
+        <audio controls>
+            <source src="audio.mp3.mp3" type="audio/mp3">
+            
+        </audio>
+        <p>Tu es ma source de bonheur et de lumière.Hayatii</p>
+        <button id="loveButton">Clique ici pour un message</button>
+        <button id="souvenirsButton">Voir nos souvenirs</button>
+        <button id="textButton">Un texte spécial pour toi</button>
+
+        <p id="message">Mon amour LHBIBA DYALI, je t'aime plus que tout au monde. LAILAAAAAAAAAAAAAAA 💕</p>
+
+        <!-- Section souvenirs -->
+        <div id="souvenirs" class="souvenirs-images">
+            <img src="image1.jpg" alt="Souvenir 1">
+            <img src="image2.jpg" alt="Souvenir 2">
+            <img src="image3.webp" alt="Souvenir 3">
+        </div>
+
+        <!-- Texte spécial -->
+        <p id="textSpecial">هدي هي ليلى،كلمه يا ليلى عنك،قول انا التي نظر العاشق (حسن) لوجهي وفمي ،واطربت كلماتي من يعشق صوتي ،انا ليلى عارضة المتعة في عالم الضحك ، قلت(يعني حسن) من أين لك هذا .قالت رباني .قلت من أين لك هذا قالت جنان. قلت إلى متى ستستمر  .قالت اجابتي بعد العشرين .سكت واجهجت بالفرح منك لله يا ليلى❤️. ❤️</p>
+    </div>
+    
+
+    <script>
+        // Affichage de l'écran de vérification
+        const verificationScreen = document.querySelector('.verification');
+        const container = document.querySelector('.container');
+        const errorMessage = document.getElementById("error");
+        const verifyButton = document.getElementById("verifyButton");
+
+        verificationScreen.style.display = "flex"; // Afficher la vérification
+
+        // Vérifier le nom et l'année de naissance
+        verifyButton.addEventListener("click", function () {
+            const name = document.getElementById("nameInput").value.trim().toLowerCase();
+            const birthYear = parseInt(document.getElementById("birthYearInput").value.trim());
+
+            // Vérification de l'année de naissance (doit être 2004)
+            if (name === "hassan" && birthYear === 2004) {
+                verificationScreen.style.display = "none"; // Cacher la vérification
+                container.style.display = "block"; // Afficher le contenu principal
+            } else {
+                errorMessage.style.display = "block"; // Afficher l'erreur
+            }
+        });
+
+        // Afficher le message d'amour
+        document.getElementById("loveButton").addEventListener("click", function () {
+            const message = document.getElementById("message");
+            message.style.display = "block"; // Affiche le message
+            this.style.display = "none"; // Cache le bouton après le clic
+        });
+
+        // Afficher les souvenirs
+        document.getElementById("souvenirsButton").addEventListener("click", function () {
+            const souvenirs = document.getElementById("souvenirs");
+            souvenirs.style.display = "block"; // Affiche les souvenirs
+            this.style.display = "none"; // Cache le bouton après le clic
+        });
+
+        // Afficher le texte spécial
+        document.getElementById("textButton").addEventListener("click", function () {
+            const textSpecial = document.getElementById("textSpecial");
+            textSpecial.style.display = "block"; // Affiche le texte spécial
+            this.style.display = "none"; // Cache le bouton après le clic
+        });
+    </script>
+</body>
+</html>
